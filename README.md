@@ -26,7 +26,7 @@ Then, let's create an Ubuntu _virtual machine_ called `pk-vm-test-01` within the
 az vm create \
   --resource-group pk-rg-test-01 \
   --name pk-vm-test-01 \
-  --image Canonical:Ubuntu2204 \
+  --image Ubuntu2204 \
   --admin-username radicel \
   --generate-ssh-keys \
   --public-ip-sku Standard
