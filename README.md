@@ -14,20 +14,32 @@ If needed, you can change the active _subscription_ with the follwoing command:
 az account set --subscription [Name or ID of subscription]
 ```
 
-Afterwards, let's first create a _resource group_ called `pk-rg-nodes-01` within the _West Europe_ region:
+Afterwards, let's first create a _resource group_ called `pk-rg-test-01` within the _West Europe_ region:
 
 ```text
-az group create --name pk-rg-nodes-01 --location westeurope
+az group create --name pk-rg-test-01 --location westeurope
 ```
 
-Then, let's create an Ubuntu _virtual machine_ called `pk-vm-node-01` within the `pk-rg-nodes-01` group:
+Then, let's create an Ubuntu _virtual machine_ called `pk-vm-test-01` within the `pk-rg-test-01` group:
 
 ```text
 az vm create \
-  --resource-group pk-rg-nodes-01 \
-  --name pk-vm-node-01 \
-  --image Canonical:0001-com-ubuntu-minimal-focal:minimal-20_04-lts-gen2:latest \
+  --resource-group pk-rg-test-01 \
+  --name pk-vm-test-01 \
+  --image Canonical:Ubuntu2204 \
   --admin-username radicel \
   --generate-ssh-keys \
   --public-ip-sku Standard
+```
+
+Finally, you can test if the creation was successful by connecting to your _virtual machine_:
+
+```text
+ssh <publicIpAddress>
+```
+
+In order to save resources (and money), you can easility delete your _virtual machine_ and all the associated resources by delete your group:
+
+```text
+az group delete --resource-group pk-rg-test-01
 ```
