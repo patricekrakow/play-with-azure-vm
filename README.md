@@ -35,7 +35,7 @@ az vm create \
 Finally, you can test if the creation was successful by connecting to your _virtual machine_:
 
 ```text
-ssh <publicIpAddress>
+ssh radicel@<publicIpAddress>
 ```
 
 In order to save resources (and money), you can easility delete your _virtual machine_ and all the associated resources by delete your group:
